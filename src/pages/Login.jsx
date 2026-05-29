@@ -19,11 +19,11 @@ function Login() {
         try {
             const data = await loginUser({ email, password })
 
-            saveSession(data.token, data.user)
+            saveSession(data.data.token, data.data.user)
 
-            if (data.user.role === "admin") {
+            if (data.data.user.role === "admin") {
                 navigate("/admin/dashboard")
-            } else if (data.user.role === "coach") {
+            } else if (data.data.user.role === "coach") {
                 navigate("/coach/dashboard")
             } else {
                 navigate("/user/dashboard")
