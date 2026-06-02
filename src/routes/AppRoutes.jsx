@@ -15,6 +15,8 @@ import AdminLayout from "../layouts/AdminLayout"
 import ProtectedRoute from "./ProtectedRoute"
 import RoleRoute from "./RoleRoute"
 
+import UsersPage from "../pages/admin/UsersPage"
+
 function AppRoutes() {
     return (
         <BrowserRouter>
@@ -31,11 +33,19 @@ function AppRoutes() {
                     <Route path="dashboard" element={<CoachDashboard />} />
                 </Route>
 
-                <Route path="/admin" element={<RoleRoute allowedRoles={["admin"]}> <AdminLayout /> </RoleRoute> }>
+                <Route
+                    path="/admin"
+                    element={
+                        <RoleRoute allowedRoles={["admin"]}>
+                            <AdminLayout />
+                        </RoleRoute>
+                    }
+                >
                     <Route path="dashboard" element={<AdminDashboard />} />
+                    <Route path="users" element={<UsersPage />} />
                 </Route>
 
-                <Route path="/perfil" element={<ProtectedRoute><h1>Perfil del usuario autenticado</h1></ProtectedRoute>}/>
+                <Route path="/perfil" element={<ProtectedRoute><h1>Perfil del usuario autenticado</h1></ProtectedRoute>} />
             </Routes>
         </BrowserRouter>
     )

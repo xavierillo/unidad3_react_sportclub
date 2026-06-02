@@ -19,6 +19,9 @@ function AdminLayout() {
 
                     <Nav className="me-auto">
                         <Link className="nav-link" to="/admin/dashboard">Dashboard</Link>
+                        <Link className="nav-link" to="/admin/users">
+                            Usuarios
+                        </Link>
                     </Nav>
 
                     <span className="text-white me-3">
